@@ -24,9 +24,8 @@ message(STATUS "libraries: ${OpenCV_LIBS} ")
 message(STATUS "> include: ${OpenCV_INCLUDE_DIRS}  ")
 
 # 将某个cpp文件添加为可执行文件并增加一个talker变量
-add_executable(talker src/publisher_member_function.cpp)
 # 将查找的这些包添加到这个可执行文件中
-ament_target_dependencies(talker rclcpp std_msgs sensor_msgs cv_bridge OpenCV)
+# ament_target_dependencies(talker rclcpp std_msgs sensor_msgs cv_bridge OpenCV)
 # 同上
 add_executable(listener src/subscriber_member_function.cpp)
 ament_target_dependencies(listener rclcpp std_msgs sensor_msgs cv_bridge OpenCV image_transport)   
@@ -34,7 +33,6 @@ ament_target_dependencies(listener rclcpp std_msgs sensor_msgs cv_bridge OpenCV 
 
 # add the install(TARGETS…) section so ros2 run can find your executable
 install(TARGETS
-  talker
   listener
   DESTINATION lib/${PROJECT_NAME})
 # uncomment the following section in order to fill in
